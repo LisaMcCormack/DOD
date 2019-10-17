@@ -8,7 +8,7 @@ type Prompter = typeof prompt;
 
 type Logger = typeof console.log;
 
-export default async function(p: Prompter, logger: Logger, questions: string[]){
+export default async function(p: Prompter, logger: Logger, questions: string[], notComplete: string[] = []){
   for (let i = 0; i < questions.length;){
     const answer = await p(questions[i]);
     if (answer === "y") {
@@ -16,6 +16,9 @@ export default async function(p: Prompter, logger: Logger, questions: string[]){
       i++
     } else {
       logger("All checks not passed");
+      notComplete.push(questions[i])
+      console.log(notComplete)
+      i++
     }
   }
 
