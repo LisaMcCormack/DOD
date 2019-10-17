@@ -22,26 +22,26 @@ it('prompts the user for an answer', async () => {
 // })
 
 it('when user answers y it asks the next question', async () => {
-    const prompt = jest.fn()
-        .mockResolvedValue('y')
-    const consolelog = jest.fn()
-
-    await DOD(prompt, consolelog)
-    expect(prompt).toBeCalledWith("It is well - & appropriately - tested (y/n) ")
-})
-
-it('say checks didnt pass if user says n', async() => {
-    const prompt = jest.fn().mockResolvedValue('n')
-    const consolelog = jest.fn()
-    await DOD(prompt, consolelog)
-    expect(consolelog).toBeCalledWith("All checks not passed")
-})
-
-it('says all checks passed is users says y', async() => {
     const prompt = jest.fn().mockResolvedValue('y')
     const consolelog = jest.fn()
-    await DOD(prompt, consolelog)
-    expect(consolelog).toBeCalledWith("All checks passed")
+    const questions = ['how are you?']
+    await DOD(prompt, consolelog, questions)
+
+    expect(prompt).toBeCalledWith(questions[0])
 })
+
+// it('say checks didnt pass if user says n', async() => {
+//     const prompt = jest.fn().mockResolvedValue('n')
+//     const consolelog = jest.fn()
+//     await DOD(prompt, consolelog)
+//     expect(consolelog).toBeCalledWith("All checks not passed")
+// })
+//
+// it('says all checks passed is users says y', async() => {
+//     const prompt = jest.fn().mockResolvedValue('y')
+//     const consolelog = jest.fn()
+//     await DOD(prompt, consolelog)
+//     expect(consolelog).toBeCalledWith("All checks passed")
+// })
 
 
