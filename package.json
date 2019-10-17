@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/index.js"
+    "start": "tsc && node dist/index.js",
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^12.7.12",
     "colors": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.7.12",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
   }
 }
