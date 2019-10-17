@@ -10,23 +10,22 @@ export default async function(
   questions: string[]
 ) {
   const notComplete: string[] = []
+
   for (let i = 0; i < questions.length; i++) {
     const answer = await p(questions[i]);
-    if (answer === "y") {
-      if (i === questions.length - 1 && notComplete.length === 0 ) {
-        logger("All checks passed");
-      }
-    }
+
     if (answer === "n") {
       notComplete.push(questions[i]);
     }
     if (answer !== "y" && answer !== "n") {
       i--;
     }
-    if (i === questions.length - 1) {
-      if (notComplete.length > 0) {
-        logger(`Tasks yet to be completed: ${notComplete}`);
-      }
-    }
   }
+
+  if (notComplete.length === 0 ) {
+    logger("All checks passed");
+  } else {
+    logger(`Tasks yet to be completed: ${notComplete}`)
+  }
+
 }
