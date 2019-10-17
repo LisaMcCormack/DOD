@@ -7,9 +7,9 @@ type Logger = typeof console.log;
 export default async function(
   p: Prompter,
   logger: Logger,
-  questions: string[],
-  notComplete: string[] = []
+  questions: string[]
 ) {
+  const notComplete: string[] = []
   for (let i = 0; i < questions.length; i++) {
     const answer = await p(questions[i]);
     if (answer === "y") {
