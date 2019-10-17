@@ -30,30 +30,22 @@ it('when user answers y it asks the next question', async () => {
     expect(prompt).toBeCalledWith(questions[1])
 })
 
-it('say checks didnt pass if user says n', async() => {
-    const prompt = jest.fn().mockResolvedValue('n')
-    const consolelog = jest.fn()
-    const questions = ['how are you?']
-    await DOD(prompt, consolelog, questions)
-
-    expect(consolelog).toBeCalledWith("All checks not passed")
-})
-
-it('says all checks passed is users says y', async() => {
-    const prompt = jest.fn().mockResolvedValue('y')
-    const consolelog = jest.fn()
-    const questions = ['how are you?']
-    await DOD(prompt, consolelog, questions)
-    expect(consolelog).toBeCalledWith("All checks passed")
-})
 
 it('if the user answers no, it collects all the questions in an array', async() => {
     const prompt = jest.fn().mockResolvedValue('n')
     const consolelog = jest.fn()
     const questions = ['how are you?', 'will this work?']
-    let notComplete:string[] = []
+    const notComplete:string[] = []
     await DOD(prompt, consolelog, questions, notComplete)
     expect(notComplete.length).toEqual(2)
 })
 
+
+it('says all checks passed if user says y', async() => {
+    const prompt = jest.fn().mockResolvedValue('y')
+    const consolelog = jest.fn()
+    const questions = ['how are you?', 'will this work?', "how's the weather today?"]
+    await DOD(prompt, consolelog, questions)
+    expect(consolelog).toBeCalledWith("All checks passed")
+})
 
