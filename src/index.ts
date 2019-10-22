@@ -1,22 +1,22 @@
 import app from "./app";
 import { prompt } from "./cli";
 const questions = [
-    "It is live and can be used (y/n) ",
-    "It is well - & appropriately - tested (y/n) ",
-    "It has appropriate metrics / logging (y/n) ",
-    "It can be demo'd to a non-technical stakeholder (y/n) ",
-    "It is appropriately documented (y/n) ",
-    "You are happy with the code (y/n) ",
-    "Someone else is happy with the code (y/n) ",
-    "The team can run the code (y/n) ",
-    "Everybody is happy with the feature (y/n) ",
-    "It is sufficiently accessible (y/n) ",
-    "It is multi-lingual (y/n) ",
-    "It is appropriately performant (server & client side) (y/n) ",
-    "It works on all supported browsers (y/n) ",
-    "It is responsive (y/n) ",
-    "It has analytics (y/n) ",
-    "A video of the feature has been made and shared (y/n) "
+    "It is live and can be used ",
+    "It is well - & appropriately - tested ",
+    "It has appropriate metrics / logging ",
+    "It can be demo'd to a non-technical stakeholder ",
+    "It is appropriately documented ",
+    "You are happy with the code ",
+    "Someone else is happy with the code ",
+    "The team can run the code ",
+    "Everybody is happy with the feature ",
+    "It is sufficiently accessible ",
+    "It is multi-lingual ",
+    "It is appropriately performant (server & client side) ",
+    "It works on all supported browsers ",
+    "It is responsive ",
+    "It has analytics ",
+    "A video of the feature has been made and shared "
 ];
 app(prompt, console.log, questions)
 
