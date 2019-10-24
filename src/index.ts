@@ -16,6 +16,7 @@ const questions = [
     "It works on all supported browsers ",
     "It is responsive ",
     "It has analytics ",
+    "New logs added are clear and actionable",
     "A video of the feature has been made and shared "
 ];
 app(prompt, console.log, questions)
